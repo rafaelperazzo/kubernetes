@@ -1,0 +1,25 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: aluno
+  namespace: sd
+rules:
+- apiGroups: ["", "autoscaling", "apps", "networking.k8s.io"]
+  verbs: ["get", "list", "create", "watch", "update"]
+  resources: ["*"]
+
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: aluno-binding
+  namespace: sd
+subjects:
+  - kind: User
+    name: aluno
+    apiGroup: rbac.authorization.k8s.io
+roleRef:
+  - kind: Role
+    name: aluno
+    apiGroup: rbac.authorization.k8s.io

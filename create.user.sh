@@ -20,8 +20,8 @@ kubectl get csr
 kubectl certificate approve $1
 kubectl get csr/$1 -o yaml
 kubectl get csr $1 -o jsonpath='{.status.certificate}'| base64 -d > $1.crt
-kubectl create role developer --verb=create --verb=get --verb=list --verb=update --verb=delete --resource=pods,deployments,services,ingress
-kubectl create rolebinding developer-binding-$1 --role=developer --user=$1
+#kubectl create role developer --verb=create --verb=get --verb=list --verb=update --verb=delete --resource=pods,deployments,services,ingress
+#kubectl create rolebinding developer-binding-$1 --role=developer --user=$1
 kubectl --kubeconfig $1-kube-config config set-credentials $1 --client-key=$1.key --client-certificate=$1.crt --embed-certs=true
 kubectl --kubeconfig $1-kube-config config set-context $1 --cluster=kubernetes --user=$1
 #kubectl config use-context $1
