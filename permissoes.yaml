@@ -20,6 +20,6 @@ subjects:
     name: aluno
     apiGroup: rbac.authorization.k8s.io
 roleRef:
-  - kind: Role
-    name: aluno
-    apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: aluno
+  apiGroup: rbac.authorization.k8s.io
