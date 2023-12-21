@@ -1,5 +1,6 @@
 #!/bin/bash
 #https://kubernetes.io/docs/reference/access-authn-authz/certificate-signing-requests/#normal-user
+#https://hbayraktar.medium.com/how-to-create-a-user-in-a-kubernetes-cluster-and-grant-access-bfeed991a0ef
 openssl genrsa -out $1.key 2048
 openssl req -new -key $1.key -out $1.csr -subj "/CN=$1"
 
